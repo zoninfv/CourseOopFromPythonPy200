@@ -1,0 +1,70 @@
+type: output
+files:
+  - name: main.py
+    visible: true
+    placeholders:
+      - offset: 571
+        length: 109
+        placeholder_text: "...  # TODO Реализовать метод проверки високосного года"
+        initial_state:
+          length: 55
+          offset: 520
+        initialized_from_dependency: false
+        encrypted_possible_answer: |-
+          if (year % 4 == 0 and year % 100 != 0) or year % 400 == 0:
+                      return True
+                  return False
+        selected: true
+        status: Failed
+      - offset: 830
+        length: 172
+        placeholder_text: "...  # TODO используя атрибут класса DAY_OF_MONTH вернуть к\
+      оличество дней в запрашиваемом месяце и году (учтите, что от високосного год\
+      а меняется строка в DAY_OF_MONTH)"
+        initial_state:
+          length: 168
+          offset: 725
+        initialized_from_dependency: false
+        encrypted_possible_answer: |-
+          if self.is_leap_year(year):
+                      return self.DAY_OF_MONTH[1][month - 1]
+                  return self.DAY_OF_MONTH[0][month - 1]
+        selected: true
+        status: Failed
+      - offset: 1135
+        length: 110
+        placeholder_text: "...  # TODO Проверить валидность даты, если дата невалидная\
+      \ вызвать ValueError, если валидная, то вернуть True"
+        initial_state:
+          length: 110
+          offset: 1026
+        initialized_from_dependency: false
+        encrypted_possible_answer: |-
+          if not 0 < day < self.get_max_day(month, year) + 1:
+                      raise ValueError("Неверное значение дня")
+                  if not 0 < month < 13:
+                      raise ValueError("Неверное значение месяца")
+                  return True
+        selected: false
+        status: Failed
+    learner_created: false
+  - name: __init__.py
+    visible: false
+    learner_created: false
+  - name: tests/output.txt
+    visible: false
+    learner_created: false
+  - name: tests/input.txt
+    visible: false
+    learner_created: false
+status: Failed
+feedback:
+  message: Incorrect
+  time: "Fri, 07 Feb 2025 17:27:05 UTC"
+  expected: |
+    29/02/2000
+    Верное поведение
+  actual: |
+    29/02/2000
+    Неверное поведение
+record: -1
